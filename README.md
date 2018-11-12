@@ -1,7 +1,7 @@
 # Neighborhood Map App Project
 
 This is the last project for the Udacity FEND Grow with Google Nanodegree.
-We were tasked to create an app that used the Google MAP API and another 3rd party Venues API. I decided to go with the [FourSquare] API (https://developer.foursquare.com/). The map will show locations via markers with a filterable list of those locations and will display an Infobox with some data about the venue.
+We were tasked to create an app that used the Google MAP API and another 3rd party Venues API. I decided to go with the [FourSquare] API (https://developer.foursquare.com/). The map will show locations via markers with a filterable list of those locations and will display an Infobox with data about the venue.
 
 
 ## Instructions
