@@ -1,0 +1,53 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: #e67e22;
+  .sideBar {
+    width: 25%;
+    #search {
+      width:100%;
+      height: 2rem;
+      font-size: 1.5rem;
+    }
+    .venueList {
+      padding: 1rem;
+    }
+    .listItem {
+        list-style: none;
+        background-color: #34495e;
+        color: white;
+        cursor: pointer;
+        font-size: 1rem;
+        padding: .5rem;
+        margin-top: .5rem;
+        display:flex;
+        overflow: hidden;
+        align-items: center;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+      }
+  }
+}
+
+#title {
+  font-size: 1em;
+  text-align: center;
+  background-color: #34495e;
+  color: white;
+  height: 100%;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 575px) {
+  #map {
+    height: 100vh;
+  }
+}
