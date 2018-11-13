@@ -34,7 +34,7 @@ export default class Sidebar extends Component {
 
   render() {
     return (
-      <div tabindex="0" role="complementary" aria-label="sidebar venue list" className="sideBar">
+      <div tabIndex="0" role="complementary" aria-label="sidebar venue list" className="sideBar">
             <input type={"search"} id={"search"} placeholder={"Filter Arcade Bars"} onChange={this.handleChange} />
           <Venuelist {...this.props} venues={this.handleFilterVenues()} handleListItemClick={this.props.handleListItemClick} />
       </div>
