@@ -7,27 +7,30 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
     defaultZoom={8}
     zoom={props.zoom}
     defaultCenter={{ lat: -34.397, lng: 150.644 }}
-    center={props.center}>
+    center={{
+        lat: parseFloat(props.center.lat),
+        lng: parseFloat(props.center.lng)
+      }}>
     {props.markers && props.markers.filter(marker => marker.isVisible).map((marker, idx, arr) => {
         const venueInfo = props.venues.find(venue => venue.id === marker.id);
       return (
-         <Marker key={idx} position={{lat: marker.lat, lng: marker.lng}} onClick={() => props.handleMarkerClick(marker)} animation={arr.length === 1 ? google.maps.Animation.BOUNCE : google.maps.Animation.DROP} >
-      {marker.isOpen && venueInfo.bestPhoto && (
-          <InfoWindow>
-            <React.Fragment>
-            <p className="font-weight-bold">{venueInfo.name}</p>
+   <Marker key={idx} position={{lat: marker.lat, lng: marker.lng}} onClick={() => props.handleMarkerClick(marker)} animation={arr.length === 1 ? google.maps.Animation.BOUNCE : google.maps.Animation.DROP} >
+        {marker.isOpen && venueInfo.bestPhoto && (
+      <InfoWindow>
+        <React.Fragment>
+          <p className="font-weight-bold">{venueInfo.name}</p>
             <hr />
-            <p>
-                {venueInfo.location.formattedAddress[0]}
-                <br />
-                {venueInfo.location.formattedAddress[1]}
-            </p>
-              <img src={`${venueInfo.bestPhoto.prefix}200x200${venueInfo.bestPhoto.suffix}`} alt={`${venueInfo.name}`} />
-            </React.Fragment>
-        </InfoWindow>
+          <p>
+            {venueInfo.location.formattedAddress[0]}
+            <br />
+            {venueInfo.location.formattedAddress[1]}
+          </p>
+            <img src={`${venueInfo.bestPhoto.prefix}200x200${venueInfo.bestPhoto.suffix}`} alt={`${venueInfo.name}`} />
+        </React.Fragment>
+      </InfoWindow>
       )}
-      </Marker>
-    );
+    </Marker>
+      );
     })}
   </GoogleMap>
 ))
@@ -40,7 +43,7 @@ export default class Map extends Component {
         isMarkerShown
         googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCerMgsWKDSOvhq6z7Aa0HmIv1XgdZfMII"
         loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `100%`, width: `75%` }} />}
+        containerElement={<div role="main" aria-label="Google venue map" style={{ height: `100%`, width: `75%` }} />}
         mapElement={<div style={{ height: `100%` }} />}
       />
     );
